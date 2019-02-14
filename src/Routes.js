@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
 import App from './containers/App';
-import CalendarWeekPage from './containers/CalendarWeekPage';
+import CalendarWeekPage from './containers/ListTasksPage';
 import CalendarMonthPage from './containers/CalendarMonthPage';
 import NavBar from './additionalComponent/NavBar'
 import NavigationMenu from './additionalComponent/NavigationMenu'
