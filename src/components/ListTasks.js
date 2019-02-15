@@ -6,27 +6,42 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import FormTask from '../containers/FormTaskPage';
+import Drawer from '@material-ui/core/Drawer';
+import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
 import moment from 'moment';
 
 import './css/FirstPage.css'
 
 class ListTasks extends Component {
+  state = {
+    top: false
+  };
+  
   componentDidMount() {
     const { searchAllTasks } = this.props;
     searchAllTasks();
   }
-  newTask = () => {
-    const { cleanForm } = this.props;
-    cleanForm()
-  };
+  
   editTask = (id) => {
     const { editTask } = this.props;
     editTask(id);
+    this.toggleDrawer('top', true)
   };
+  
   deleteTask = (id) => {
     const { delTask } = this.props;
     delTask(id);
   };
+  
+  toggleDrawer = (side, open) => () => {
+    this.setState({
+      [side]: open,
+    });
+    const { cleanForm } = this.props;
+    cleanForm();
+  };
+  
   render() {
     const {
       tasks, formTask, addTask, sendEditTask,
@@ -36,22 +51,32 @@ class ListTasks extends Component {
     return (
       <div>
         <Paper>
-          <button onClick={this.newTask}>Новая таска</button>
         <div>
-          <FormTask sendEditTask={sendEditTask} addTask={addTask} formTask={formTask}/>
+          <Drawer anchor="top" open={this.state.top} onClose={this.toggleDrawer('top', false)}>
+            <FormTask isClose={this.toggleDrawer('top', false)} sendEditTask={sendEditTask} addTask={addTask} formTask={formTask}/>
+          </Drawer>
         </div>
-          <button onClick={searchAllTasks}>Все</button>
-          <button onClick={searchTodayTasks}>Сегодня</button>
-          <button onClick={searchTomorrowTasks}>Завтра</button>
-          <button onClick={searchWeekTasks}>Неделя</button>
-          <button onClick={searchMonthTasks}>Месяц</button>
+          <div className="buttonGroup">
+            <div>
+              <Button className="buttonGroup-button" size="small" variant="outlined" onClick={searchAllTasks}>Все</Button>
+              <Button className="buttonGroup-button" size="small" variant="outlined" onClick={searchTodayTasks}>Сегодня</Button>
+              <Button className="buttonGroup-button" size="small" variant="outlined" onClick={searchTomorrowTasks}>Завтра</Button>
+              <Button className="buttonGroup-button" size="small" variant="outlined" onClick={searchWeekTasks}>Неделя</Button>
+              <Button className="buttonGroup-button" size="small" variant="outlined" onClick={searchMonthTasks}>Месяц</Button>
+            </div>
+            <div>
+              <Button variant="contained" size="small" color="primary" onClick={this.toggleDrawer('top', true)}>Создать задачу</Button>
+            </div>
+          </div>
+          <Divider/>
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell align="right">Название</TableCell>
-                <TableCell align="right">Описание</TableCell>
-                <TableCell align="right">Дата начала</TableCell>
-                <TableCell align="right">Дата окончания</TableCell>
+                <TableCell align="center">Название</TableCell>
+                <TableCell align="center">Описание</TableCell>
+                <TableCell align="center">Дата начала</TableCell>
+                <TableCell align="center">Дата окончания</TableCell>
+                <TableCell></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -62,8 +87,8 @@ class ListTasks extends Component {
                   <TableCell align="center">{moment(t.dateStart).format('DD.MM.YYYY HH:mm')}</TableCell>
                   <TableCell align="center">{moment(t.dateEnd).format('DD.MM.YYYY HH:mm')}</TableCell>
                   <TableCell align="center">
-                    <button onClick={() => this.editTask(t.id)}> red </button>
-                    <button onClick={() => this.deleteTask(t.id)}> удалить </button>
+                    <Button onClick={() => this.editTask(t.id)}> Редактировать </Button>
+                    <Button onClick={() => this.deleteTask(t.id)}> Удалить </Button>
                   </TableCell>
                 </TableRow>
               )}

@@ -1,9 +1,13 @@
+export const TASK_FROM_DAY = "TASK_FROM_DAY";
+export const FILTER_TASKS = "FILTER_TASKS";
+
 export default function listTaskReducers(state = [], action) {
-  if (action.type === "TASK_FROM_DAY") {
-    return action.payload;
+  switch (action.type) {
+    case TASK_FROM_DAY:
+      return action.payload;
+    case FILTER_TASKS:
+      return action.payload;
+    default:
+      return state
   }
-  if (action.type === "FILTER_TASKS") {
-    return action.payload;
-  }
-  return state;
 }

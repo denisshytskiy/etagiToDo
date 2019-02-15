@@ -6,7 +6,6 @@ import Paper from '@material-ui/core/Paper';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -29,25 +28,21 @@ class NavigationMenu extends Component {
 						</ExpansionPanel>
 						<ExpansionPanel>
 							<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-								<Link to="/month">
+								<Link to="/week">
 									Календарь
 								</Link>
 							</ExpansionPanelSummary>
 							<ExpansionPanelDetails className="firstPageList">
 								<List className="firstPageListItem">
 									<ListItem role={undefined} dense button>
-										<Link to="/month">
-											Месяц
+										<Link to="/week">
+											Неделя
 										</Link>
 									</ListItem>
 									<ListItem role={undefined} dense button>
-										<ListItemText primary="Неделя" />
-									</ListItem>
-									<ListItem role={undefined} dense button>
-										<ListItemText primary="Месяц" />
-									</ListItem>
-									<ListItem role={undefined} dense button>
-										<ListItemText primary="Год" />
+										<Link to="/month">
+											Месяц
+										</Link>
 									</ListItem>
 								</List>
 							</ExpansionPanelDetails>

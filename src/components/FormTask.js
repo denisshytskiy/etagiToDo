@@ -20,7 +20,7 @@ class FormTask extends Component {
 	};
 	
 	render() {
-		const { formTask } = this.props;
+		const { formTask, isClose } = this.props;
 		return (
 			<div>
 				<TextField
@@ -58,6 +58,7 @@ class FormTask extends Component {
 				/>
 				<br />
 				<button onClick={(formTask.type === 'create') ? this.addTask : this.editTask}>{(formTask.type === 'create') ? 'создать' : 'редактировать'}</button>
+				<button onClick={isClose}>Закрыть</button>
 			</div>
 		)
 	}

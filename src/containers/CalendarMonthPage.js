@@ -1,11 +1,12 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import CalendarMonth from '../components/CalendarMonth';
-import * as actions from '../actions/listTasksAction';
+import * as actions from '../actions/CalendarMonthAction';
 
 function mapStateToProps(state) {
   return {
-    testReducers: state.testReducers
+    tasks: state.monthTasksOnDay,
+    month: state.month
   };
 }
 

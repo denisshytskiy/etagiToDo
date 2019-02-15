@@ -1,13 +1,26 @@
 .firstPageContainer {
 	display: flex;
 	flex-direction: row;
+	margin: 5px 5px 0 5px;
 }
 
 .firstPageLeft {
 	flex-grow: .1;
+	min-width: 200px;
 	max-width: 200px;
 }
 
 .firstPageRight {
 	flex-grow: 1;
+}
+
+.buttonGroup {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 5px 5px 5px;
+	padding-top: 5px;
+}
+
+.buttonGroup-button {
+	margin-left: 2px !important;
 }
