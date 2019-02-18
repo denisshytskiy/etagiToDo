@@ -46,23 +46,27 @@ class FormTask extends Component {
 								fullWidth
 								required={true}
 							/>
-							<TextField
-								className="formInputDate"
-								label="Дата начала задачи"
-								type="datetime-local"
-								value={formTask.dateStart}
-								onChange={(e) => this.changeField('dateStart', e.target.value)}
-								margin="normal"
-							/>
-							<TextField
-								label="Дата окончания задачи"
-								type="datetime-local"
-								inputProps={{ min: formTask.dateStart}}
-								value={formTask.dateEnd}
-								helperText="Дата окончания не может быть раньше даты начала"
-								onChange={(e) => this.changeField('dateEnd', e.target.value)}
-								margin="normal"
-							/>
+							<div className="formDateContainer">
+								<div>
+									<TextField
+										className="formInputDate"
+										label="Дата начала задачи"
+										type="datetime-local"
+										value={formTask.dateStart}
+										onChange={(e) => this.changeField('dateStart', e.target.value)}
+										margin="normal"
+									/>
+									<TextField
+										label="Дата окончания задачи"
+										type="datetime-local"
+										inputProps={{ min: formTask.dateStart}}
+										value={formTask.dateEnd}
+										onChange={(e) => this.changeField('dateEnd', e.target.value)}
+										margin="normal"
+									/>
+								</div>
+								<p className="formDateContainer-helper">Дата окончания не может быть раньше даты начала</p>
+							</div>
 							<TextField
 								label="Описание задачи"
 								inputProps={{ maxLength: "70"}}
@@ -78,6 +82,7 @@ class FormTask extends Component {
 							<TextField
 								label="Важность"
 								type="number"
+								helperText="От 0 до 5"
 								inputProps={{ min: "0", max: "5", step: "1", maxLength: "1"}}
 								value={formTask.important ? formTask.important : "0"}
 								onChange={(e) => this.changeField('important', e.target.value)}

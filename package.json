@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@date-io/date-fns": "latest",
     "@material-ui/core": "latest",
     "@material-ui/icons": "latest",
     "connected-react-router": "^6.1.0",
