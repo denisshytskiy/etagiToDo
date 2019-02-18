@@ -1,32 +1,56 @@
-import {getAllTasks} from "../apiService";
+import {deleteTask, getAllTasks, postTask, putTask} from "../apiService";
 import moment from 'moment';
+import {CLEAN_FORM, EDIT_TASK, IS_OPEN_FORM} from "./listTasksAction";
 
-export const TASKS_ON_WEEK = "TASKS_ON_WEEK";
-export const DUMP_WEEK = "DUMP_WEEK";
-export const SWITCH_WEEK = "SWITCH_WEEK";
+export const TASKS = "GET_TASKS";
+export const DUMP = "DUMP_WEEK";
+export const SWITCH = "SWITCH_WEEK";
 
-const searchTasks = (dateStart) => getAllTasks().filter( task =>
-	moment(task.dateStart, "YYYY-MM-DDTHH:mm").format("DD-MM-YYYY") === dateStart
-).sort(function(a, b){
-	return moment(a.dateStart, "YYYY-MM-DDTHH:mm").format('X')-moment(b.dateStart, "YYYY-MM-DDTHH:mm").format('X')
-});
+export const cleanForm = () => dispatch => {
+	dispatch({ type: CLEAN_FORM });
+	dispatch({ type: IS_OPEN_FORM, payload: true });
+};
+
+export const addTask = (body, type) => dispatch => {
+	const cleanBody = {...body};
+	delete cleanBody.typeForm;
+	postTask(cleanBody);
+	const items = getAllTasks(type);
+	dispatch({ type: TASKS, payload: items });
+	dispatch({ type: CLEAN_FORM });
+	dispatch({ type: IS_OPEN_FORM, payload: false});
+};
+
+export const delTask = (id, type) => dispatch => {
+	deleteTask(id);
+	const tasks = getAllTasks(type);
+	dispatch({ type: TASKS, payload: tasks })
+};
+
+export const editTask = (id) => dispatch => {
+	const tasks = getAllTasks().filter(t => t.id === id)[0];
+	dispatch({ type: EDIT_TASK, payload: tasks });
+	dispatch({ type: IS_OPEN_FORM, payload: true });
+};
+
+export const editTaskFromForm = (body, type) => dispatch => {
+	const cleanBody = {...body};
+	delete cleanBody.type;
+	putTask(cleanBody);
+	const tasks = getAllTasks(type);
+	dispatch({ type: TASKS, payload: tasks });
+	dispatch({ type: IS_OPEN_FORM, payload: true });
+};
 
 export const dumpWeek = () => dispatch => {
 	const firstWeekDate = moment().isoWeekday(1).format("DD-MM-YYYY");
 	const lastWeekDate =  moment().isoWeekday(7).format("DD-MM-YYYY");
-	const tasksOnWeek = [];
-	for (let i = 0; i < 7; i++) {
-		const date = moment(firstWeekDate, "DD-MM-YYYY").add(i, 'day').format("DD-MM-YYYY");
-		tasksOnWeek.push({
-			date,
-			tasks: searchTasks(date)})
-	}
 	dispatch({
-		type: TASKS_ON_WEEK,
-		payload: tasksOnWeek
+		type: TASKS,
+		payload: getAllTasks({filterType: 'weekGroup', filterProps: firstWeekDate})
 	});
 	dispatch({
-		type: DUMP_WEEK,
+		type: DUMP,
 		payload: { firstWeekDate, lastWeekDate }
 	})
 };
@@ -47,19 +71,12 @@ export const changeWeek = (weekDays) => dispatch => {
 			break;
 		}
 	}
-	const tasksOnWeek = [];
-	for (let i = 0; i < 7; i++) {
-		const date = moment(firstWeekDate, "DD-MM-YYYY").add(i, 'day').format("DD-MM-YYYY");
-		tasksOnWeek.push({
-			date,
-			tasks: searchTasks(date)})
-	}
 	dispatch({
-		type: TASKS_ON_WEEK,
-		payload: tasksOnWeek
+		type: TASKS,
+		payload: getAllTasks({filterType: 'weekGroup', filterProps: firstWeekDate})
 	});
 	dispatch({
-		type: SWITCH_WEEK,
+		type: SWITCH,
 		payload: { firstWeekDate, lastWeekDate }
 	})
 };

@@ -6,7 +6,7 @@ import CalendarWeekPage from './containers/CalendarWeekPage';
 import CalendarMonthPage from './containers/CalendarMonthPage';
 import NavBar from './additionalComponent/NavBar'
 import NavigationMenu from './additionalComponent/NavigationMenu'
-import './components/css/FirstPage.css'
+import './MainPage.css'
 
 export default () => (
   <App>

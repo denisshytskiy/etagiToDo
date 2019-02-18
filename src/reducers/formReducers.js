@@ -3,22 +3,25 @@ import moment from 'moment';
 export const CLEAN_FORM = "CLEAN_FORM";
 export const EDIT_TASK = "EDIT_TASK";
 export const CHANGE_FIELD = "CHANGE_FIELD";
+export const IS_OPEN_FORM = "IS_OPEN_FORM";
 
 const initialStateForm = {
 	name: '',
 	description: '',
 	dateStart: moment().format('YYYY-MM-DDTHH:mm'),
 	dateEnd: moment().format('YYYY-MM-DDTHH:mm'),
-	type: 'create'
+	important: '',
+	members: [],
+	typeForm: 'create'
 };
 
-export default function formReducers(state = initialStateForm, action) {
+export function formReducers(state = initialStateForm, action) {
 	switch (action.type) {
 		case CLEAN_FORM:
 			return initialStateForm;
 		case EDIT_TASK:
 			return {
-				type: 'edit',
+				typeForm: 'edit',
 				...action.payload
 			};
 		case CHANGE_FIELD:
@@ -26,6 +29,15 @@ export default function formReducers(state = initialStateForm, action) {
 				...state,
 				...action.payload
 			};
+		default:
+			return state;
+	}
+}
+
+export function isOpenForm(state = false, action) {
+	switch (action.type) {
+		case IS_OPEN_FORM:
+			return action.payload;
 		default:
 			return state;
 	}

@@ -1,0 +1,54 @@
+.formContainer {
+	width: 770px;
+	margin: 10px auto;
+	display: flex;
+}
+
+.formContainer-left {
+	width: 450px;
+}
+
+.formContainer-right {
+	margin-left: 20px;
+	margin-right: 5px;
+	width: 250px;
+	max-height: 400px;
+	overflow: auto;
+}
+
+.buttonControls {
+	margin-right: 10px !important;
+}
+
+.formInputName {
+	margin-top: 0 !important;
+}
+
+.formInputDate {
+	margin-right: 20px !important;
+}
+
+.membersAdd {
+	display: flex;
+	justify-content: space-between;
+}
+
+.membersList {
+	display: flex;
+	justify-content: space-between;
+}
+
+.roundedButton-add {
+	margin-top: 10px !important;
+	border-radius: 50% !important;
+	max-width: 35px !important;
+	min-width: 35px !important;
+	max-height: 35px !important;
+	padding: 6px 10px !important;
+}
+
+.roundedButton-delete {
+	border-radius: 50% !important;
+	min-width: 40px !important;
+	padding: 6px 12px !important;
+}

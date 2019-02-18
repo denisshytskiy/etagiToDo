@@ -1,99 +1,93 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Paper from '@material-ui/core/Paper';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import FormTask from '../containers/FormTaskPage';
-import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
+
 import moment from 'moment';
+import FormTask from '../containers/FormTaskPage';
+import Tasks from './Tasks';
 
-import './css/FirstPage.css'
+import './css/ListTask.css'
 
-class ListTasks extends Component {
-  state = {
-    top: false
-  };
-  
+class ListTasks extends PureComponent {
   componentDidMount() {
-    const { searchAllTasks } = this.props;
-    searchAllTasks();
+    const { searchTasks } = this.props;
+    searchTasks({filterType: 'all', selectedButton: 'all'});
   }
-  
-  editTask = (id) => {
-    const { editTask } = this.props;
-    editTask(id);
-    this.toggleDrawer('top', true)
-  };
-  
-  deleteTask = (id) => {
-    const { delTask } = this.props;
-    delTask(id);
-  };
-  
-  toggleDrawer = (side, open) => () => {
-    this.setState({
-      [side]: open,
-    });
-    const { cleanForm } = this.props;
-    cleanForm();
-  };
   
   render() {
     const {
-      tasks, formTask, addTask, sendEditTask,
-      searchAllTasks, searchTodayTasks, searchTomorrowTasks,
-      searchWeekTasks, searchMonthTasks
+      tasks, formTask, addTask, editTaskFromForm,
+      searchTasks, cleanForm, selectedButton, editTask, delTask
     } = this.props;
     return (
       <div>
         <Paper>
         <div>
-          <Drawer anchor="top" open={this.state.top} onClose={this.toggleDrawer('top', false)}>
-            <FormTask isClose={this.toggleDrawer('top', false)} sendEditTask={sendEditTask} addTask={addTask} formTask={formTask}/>
-          </Drawer>
+          <FormTask
+            sendEditTask={(body) => editTaskFromForm(body, selectedButton)}
+            addTask={(body) => addTask(body, selectedButton)}
+            formTask={formTask}
+          />
         </div>
+          <p className="listTitle">Список дел</p>
           <div className="buttonGroup">
             <div>
-              <Button className="buttonGroup-button" size="small" variant="outlined" onClick={searchAllTasks}>Все</Button>
-              <Button className="buttonGroup-button" size="small" variant="outlined" onClick={searchTodayTasks}>Сегодня</Button>
-              <Button className="buttonGroup-button" size="small" variant="outlined" onClick={searchTomorrowTasks}>Завтра</Button>
-              <Button className="buttonGroup-button" size="small" variant="outlined" onClick={searchWeekTasks}>Неделя</Button>
-              <Button className="buttonGroup-button" size="small" variant="outlined" onClick={searchMonthTasks}>Месяц</Button>
+              <Button
+                className="buttonGroup-button"
+                size="small"
+                variant={selectedButton === 'all' ? "contained" : "outlined"}
+                onClick={() => searchTasks({selectedButton: 'all', filterType: 'all'})}
+              >
+                Все
+              </Button>
+              <Button
+                className="buttonGroup-button"
+                size="small"
+                variant={selectedButton === 'today' ? "contained" : "outlined"}
+                onClick={() => searchTasks({ selectedButton: 'today', filterType: 'day', filterProps: moment().format("DD-MM-YYYY")})}
+              >
+                Сегодня
+              </Button>
+              <Button
+                className="buttonGroup-button"
+                size="small"
+                variant={selectedButton === 'tomorrow' ? "contained" : "outlined"}
+                onClick={() => searchTasks({ selectedButton: 'tomorrow', filterType: 'day', filterProps: moment().add(1, 'day').format("DD-MM-YYYY")})}
+              >
+                Завтра
+              </Button>
+              <Button
+                className="buttonGroup-button"
+                size="small"
+                variant={selectedButton === 'week' ? "contained" : "outlined"}
+                onClick={() => searchTasks({ selectedButton: 'week', filterType: 'weekList'})}
+
+              >
+                Неделя
+              </Button>
+              <Button
+                className="buttonGroup-button"
+                size="small"
+                variant={selectedButton === 'month' ? "contained" : "outlined"}
+                onClick={() => searchTasks({ selectedButton: 'month', filterType: 'monthList'})}
+              >
+                Месяц
+              </Button>
             </div>
             <div>
-              <Button variant="contained" size="small" color="primary" onClick={this.toggleDrawer('top', true)}>Создать задачу</Button>
+              <Button
+                variant="contained"
+                size="small"
+                color="primary"
+                onClick={() => cleanForm(selectedButton)}
+              >
+                Создать задачу
+              </Button>
             </div>
           </div>
           <Divider/>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell align="center">Название</TableCell>
-                <TableCell align="center">Описание</TableCell>
-                <TableCell align="center">Дата начала</TableCell>
-                <TableCell align="center">Дата окончания</TableCell>
-                <TableCell></TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {tasks.map(t =>
-                <TableRow key={t.id}>
-                  <TableCell align="center">{t.name}</TableCell>
-                  <TableCell align="center">{t.description}</TableCell>
-                  <TableCell align="center">{moment(t.dateStart).format('DD.MM.YYYY HH:mm')}</TableCell>
-                  <TableCell align="center">{moment(t.dateEnd).format('DD.MM.YYYY HH:mm')}</TableCell>
-                  <TableCell align="center">
-                    <Button onClick={() => this.editTask(t.id)}> Редактировать </Button>
-                    <Button onClick={() => this.deleteTask(t.id)}> Удалить </Button>
-                  </TableCell>
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
+          <Tasks {...this.props} />
         </Paper>
       </div>
     );

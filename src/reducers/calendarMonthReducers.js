@@ -1,8 +1,6 @@
 import moment from "moment";
 
-export const TASKS_ON_MONTH = "TASKS_ON_MONTH";
-export const DUMP_MONTH = "DUMP_MONTH";
-export const SWITCH_MONTH = "SWITCH_MONTH";
+import {TASKS, DUMP, SWITCH} from '../actions/CalendarMonthAction';
 
 const initialState = {
 	daysInMonth : moment().daysInMonth(),
@@ -12,12 +10,12 @@ const initialState = {
 
 export function month(state = initialState, action) {
 	switch (action.type) {
-		case SWITCH_MONTH:
+		case SWITCH:
 			return{
 				...state,
 				...action.payload
 			};
-		case DUMP_MONTH:
+		case DUMP:
 			return action.payload;
 		default:
 			return state
@@ -26,7 +24,7 @@ export function month(state = initialState, action) {
 
 export function monthTasksOnDay(state = [], action) {
 	switch (action.type) {
-		case TASKS_ON_MONTH:
+		case TASKS:
 			return action.payload;
 		default:
 			return state

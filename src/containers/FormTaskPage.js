@@ -5,7 +5,8 @@ import * as actions from '../actions/formAction';
 
 function mapStateToProps(state) {
 	return {
-		formTask: state.formReducers
+		formTask: state.formReducers,
+		isOpenForm: state.isOpenForm
 	};
 }
 

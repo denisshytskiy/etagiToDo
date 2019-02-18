@@ -6,7 +6,8 @@ import * as actions from '../actions/listTasksAction';
 function mapStateToProps(state) {
   return {
     tasks: state.listTaskReducers,
-    formTask: state.formReducers
+    formTask: state.formReducers,
+    selectedButton: state.selectedButton
   };
 }
 

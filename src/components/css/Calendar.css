@@ -1,0 +1,53 @@
+.calendarContainer {
+	padding : 5px;
+}
+
+.calendarTitle {
+	margin-top: 0;
+}
+
+.buttonGroup {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 5px 5px 5px;
+	padding-top: 5px;
+}
+
+.buttonGroup-button {
+	margin-right: 2px !important;
+}
+
+.expansionPanelSummaryContainer {
+	display: flex !important;
+	flex-direction: column !important;
+}
+
+.expansionPanelSummaryTitle {
+	margin: 0;
+}
+
+.expansionPanelSummarySubtitle {
+	margin: 2px 0 0 0;
+}
+
+.tableHeadName {
+	min-width: 14.2%;
+	max-width: 55px;
+}
+
+.tableHeadDescription {
+	min-width: 14.2%;
+	max-width: 55px;
+	overflow: hidden;
+}
+
+.tableHeadDate {
+	min-width: 14.2%;
+	max-width: 55px;
+}
+
+.tableHeadImportant {
+	min-width: 14.2%;
+	max-width: 55px;
+	padding: 11px !important;
+}

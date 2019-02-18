@@ -1,0 +1,38 @@
+.firstPageContainer {
+	display: flex;
+	flex-direction: row;
+	margin: 5px 5px 0 5px;
+}
+
+.firstPageLeft {
+	flex-grow: .1;
+	min-width: 200px;
+	max-width: 200px;
+	margin-right: 2px !important;
+}
+
+.firstPageRight {
+	flex-grow: 1;
+	width: 80vw;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey;
+	border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #c1c1c1;
+	border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #979797;
+}
