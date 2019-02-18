@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="27b5b72a-bf7a-4537-8ef4-b9b71aee0f9b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/CalendarMonthAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/CalendarMonthAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/CalendarWeekAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/CalendarWeekAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/formAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/formAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/listTasksAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/listTasksAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/additionalComponent/NavigationMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/additionalComponent/NavigationMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/additionalComponent/css/NavigationMenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/additionalComponent/css/NavigationMenu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apiService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apiService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CalendarMonth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CalendarMonth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CalendarWeek.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CalendarWeek.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FormTask.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormTask.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ListTasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListTasks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/css/FirstPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/FormTaskPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/FormTaskPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/ListTasksPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ListTasksPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/calendarMonthReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/calendarMonthReducers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/calendarWeekReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/calendarWeekReducers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/formReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/formReducers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/listTaskReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/listTaskReducers.js" afterDir="false" />
-    </list>
+    <list default="true" id="27b5b72a-bf7a-4537-8ef4-b9b71aee0f9b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,17 +79,20 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/ListTasks.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+                <state relative-caret-position="255">
+                  <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+                  <folding>
+                    <element signature="e#0#45#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/components/css/ListTask.css">
+            <entry file="file://$PROJECT_DIR$/package.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="45">
-                  <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+                <state relative-caret-position="390">
+                  <caret line="26" column="27" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
                 </state>
               </provider>
             </entry>
@@ -263,8 +243,8 @@
         <option value="$PROJECT_DIR$/src/additionalComponent/NavigationMenu.js" />
         <option value="$PROJECT_DIR$/src/components/MembersForm.js" />
         <option value="$PROJECT_DIR$/src/components/Tasks.js" />
-        <option value="$PROJECT_DIR$/src/components/ListTasks.js" />
         <option value="$PROJECT_DIR$/src/components/css/ListTask.css" />
+        <option value="$PROJECT_DIR$/src/components/ListTasks.js" />
       </list>
     </option>
   </component>
@@ -332,7 +312,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550504576286" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550505225175" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../event-manager/frontend" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -387,15 +367,15 @@
       <workItem from="1549564167377" duration="5271000" />
       <workItem from="1549708643800" duration="60424000" />
       <workItem from="1550132363882" duration="71125000" />
-      <workItem from="1550490783724" duration="8020000" />
+      <workItem from="1550490783724" duration="8574000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150002000" />
+    <option name="totallyTimeSpent" value="150556000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1311" height="743" extended-state="6" />
+    <frame x="0" y="25" width="1311" height="743" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16996047" />
@@ -481,13 +461,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="33" selection-start-column="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -772,13 +745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ListTasks.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/css/FormTask.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -797,6 +763,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ListTasks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="27" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
         </state>
       </provider>
     </entry>
